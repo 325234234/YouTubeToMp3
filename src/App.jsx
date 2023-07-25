@@ -47,7 +47,7 @@ export default function App() {
         setLoading(true)
         setShowModal(true) 
 
-        const url = "https://musical-daffodil-6853f7.netlify.app/.netlify/functions/rapidRequest"
+        const serverFunction = "https://musical-daffodil-6853f7.netlify.app/.netlify/functions/rapidRequest"
         const options = {
             method: 'POST',
             headers: {
@@ -55,7 +55,7 @@ export default function App() {
             },
             body: videoUrl
         }
-        const response = await fetch(url, options)
+        const response = await fetch(serverFunction, options)
         const data = await response.json()
         console.log(data)
 
@@ -107,7 +107,7 @@ export default function App() {
         const id = url.match(regEx)[1]
 
         //check if video exists
-        const url = "https://musical-daffodil-6853f7.netlify.app/.netlify/functions/youtubeRequest"
+        const serverFunction = "https://musical-daffodil-6853f7.netlify.app/.netlify/functions/youtubeRequest"
         const options = {
             method: 'POST',
             headers: {
@@ -115,9 +115,9 @@ export default function App() {
             },
             body: id
         }
-        const response = await fetch(url, options)
+        const response = await fetch(serverFunction, options)
         const data = await response.json()
-        // console.log(data)
+        console.log(data)
 
         // 0 = no video = falsey = false, 1 = video = truthy = true
         return data.items.length  

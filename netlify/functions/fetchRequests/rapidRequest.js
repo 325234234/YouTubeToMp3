@@ -1,3 +1,7 @@
+const keys = {
+  RAPID_API_KEY: process.env.RAPID_API_KEY 
+}
+
 const handler = async (event) => {
   try {
     const subject = event.queryStringParameters.name || 'World'

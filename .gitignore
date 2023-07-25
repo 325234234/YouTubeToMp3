@@ -24,7 +24,6 @@ dist-ssr
 *.sw?
 
 # api keys
-.env
 env.js
 
 # Local Netlify folder

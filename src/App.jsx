@@ -117,7 +117,7 @@ export default function App() {
         }
         const response = await fetch(url, options)
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
 
         // 0 = no video = falsey = false, 1 = video = truthy = true
         return data.items.length  

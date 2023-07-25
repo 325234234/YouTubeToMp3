@@ -13,7 +13,7 @@ export default function App() {
         setLoading(true)
         setShowModal(true) 
 
-        const serverFunction = "https://musical-daffodil-6853f7.netlify.app/.netlify/functions/rapidRequest"
+        const serverFunction = "https://digitalbard.netlify.app/.netlify/functions/rapidRequest"
         const options = {
             method: 'POST',
             headers: {
@@ -55,7 +55,7 @@ export default function App() {
         const id = url.match(regEx)[1]
 
         //check if video exists
-        const serverFunction = "https://musical-daffodil-6853f7.netlify.app/.netlify/functions/youtubeRequest"
+        const serverFunction = "https://digitalbard.netlify.app/.netlify/functions/youtubeRequest"
         const options = {
           method: 'POST',
           headers: {

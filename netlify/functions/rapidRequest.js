@@ -1,14 +1,11 @@
-const keys = {
-  RAPID_API_KEY: process.env.RAPID_API_KEY 
-}
-
+//download the audio from a provided youtube video
 const handler = async (event) => {
   try {
     const url = `https://youtube-mp3-downloader2.p.rapidapi.com/ytmp3/ytmp3/custom/?url=${event.body}&quality=192`
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': keys.RAPID_API_KEY,
+        'X-RapidAPI-Key': process.env.RAPID_API_KEY,
         'X-RapidAPI-Host': 'youtube-mp3-downloader2.p.rapidapi.com'
       }
     }

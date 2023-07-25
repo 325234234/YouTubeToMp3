@@ -1,6 +1,5 @@
 import ReactModal from 'react-modal'
 import BeatLoader from 'react-spinners/BeatLoader'
-// import { keys } from "../env"
 import { useState } from "react"
 
 export default function App() {
@@ -9,7 +8,7 @@ export default function App() {
   const [showModal, setShowModal] = useState(false)
 
   async function downloadMp3() {
-    if(await videoExists(videoUrl)) {      
+    if(await videoExists(videoUrl)) {     
       try {
         setLoading(true)
         setShowModal(true) 
@@ -18,7 +17,7 @@ export default function App() {
         const options = {
             method: 'POST',
             headers: {
-                'content-type': 'text/plain',
+              'content-type': 'text/plain',
             },
             body: videoUrl
         }
@@ -58,11 +57,11 @@ export default function App() {
         //check if video exists
         const serverFunction = "https://musical-daffodil-6853f7.netlify.app/.netlify/functions/youtubeRequest"
         const options = {
-            method: 'POST',
-            headers: {
-                'content-type': 'text/plain',
-            },
-            body: id
+          method: 'POST',
+          headers: {
+              'content-type': 'text/plain',
+          },
+          body: id
         }
         const response = await fetch(serverFunction, options)
         const data = await response.json()

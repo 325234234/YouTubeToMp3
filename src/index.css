@@ -1,0 +1,141 @@
+/* General setup */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Typology */
+body,
+input,
+button,
+.modal-content {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Layout */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgb(0,0,0);
+  /* background: linear-gradient(170deg, rgba(2,0,36,1) 0%, rgba(43,43,142,1) 35%, rgba(0,212,255,1) 100%);  */
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Title */
+main > h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 5rem;
+  color: whitesmoke;
+}
+
+/* Search bar */
+#searchbar {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  height: 3em;
+  width: 600px;
+}
+
+#searchbar > input {
+  height: 100%;
+  width: 80%;
+
+  border: none;
+  border-bottom-left-radius: 10px;
+
+  background-color: #2E2E2F;
+  color: #A5A5A5;
+
+  padding-left: 3em;
+  z-index: 1;
+}
+
+#searchbar > i {
+  z-index: 2;
+  position: absolute;
+  left: 1em;
+  color: #A5A5A5;
+}
+
+#searchbar > input,
+#searchbar > button {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+#searchbar > button {
+  height: 100%;
+  width: 20%;
+
+  border: none;
+  border-top-right-radius: 10px;
+
+  background-color: #4B4B4B;
+  color: white;
+  
+  cursor: pointer;
+}
+
+#searchbar > button:hover {
+  filter:brightness(90%);
+}
+
+#searchbar > button:active {
+  transform:scale(0.95);
+}
+
+/* Error modal */
+.modal-overlay {
+  width: 200px;
+  height: 75px;
+  
+  /* position: fixed; */
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 3;
+
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}
+
+.modal-content {
+  width: 100%;
+  height: 100%;
+  background-color: #2E2E2F;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 3px solid #4B4B4B;
+  
+  position: absolute;
+  overflow: auto;
+  border-radius: 10px;
+  outline: none;
+}

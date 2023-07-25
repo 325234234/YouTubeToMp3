@@ -9,37 +9,54 @@ export default function App() {
   const [showModal, setShowModal] = useState(false)
 
   async function downloadMp3() {
-    if(await videoExists(videoUrl)) {
-      const url = `https://youtube-mp3-downloader2.p.rapidapi.com/ytmp3/ytmp3/custom/?url=${videoUrl}&quality=192`
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': keys.env.RAPID_API_KEY,
-          'X-RapidAPI-Host': 'youtube-mp3-downloader2.p.rapidapi.com'
-        }
-      }
+    // if(await videoExists(videoUrl)) {      
+    //   try {
+    //     setLoading(true)
+    //     setShowModal(true) 
 
-      try {
-        setLoading(true)
-        setShowModal(true) 
-        const response = await fetch(url, options)
-        if(!response.ok) {
-          throw {
-            message: "Download API didn't cooperate.", 
-            statusText: response.statusText,
-            status: response.status
-          }
-        }
-        startDownload(await response.json())
-      } catch (error) {
-        console.error(error)
-      } finally {
-        setLoading(false)
-        setVideoURL("")
-      }
-    } else {      
-      setShowModal(true)    
+    //     const url = `https://youtube-mp3-downloader2.p.rapidapi.com/ytmp3/ytmp3/custom/?url=${videoUrl}&quality=192`
+    //     const options = {
+    //       method: 'GET',
+    //       headers: {
+    //         'X-RapidAPI-Key': keys.env.RAPID_API_KEY,
+    //         'X-RapidAPI-Host': 'youtube-mp3-downloader2.p.rapidapi.com'
+    //       }
+    //     }
+    //     const response = await fetch(url, options)
+    //     if(!response.ok) {
+    //       throw {
+    //         message: "Download API didn't cooperate.", 
+    //         statusText: response.statusText,
+    //         status: response.status
+    //       }
+    //     }
+
+    //     startDownload(await response.json())
+    //   } catch (error) {
+    //     console.error(error)
+    //   } finally {
+    //     setLoading(false)
+    //     setVideoURL("")
+    //   }
+    // } else {      
+    //   setShowModal(true)    
+    // }
+
+    
+
+    const url = "https://musical-daffodil-6853f7.netlify.app/.netlify/functions/fetchRequests"
+    const options = {
+        method: 'POST',
+        headers: {
+            'content-type': 'text/plain',
+        },
+        body: "test"
     }
+    const response = await fetch(url, options)
+    const data = await response.json()
+    console.log(data)
+
+
   }
 
   //initiate download by adding anchor tag with download attribute and clicking it

@@ -9,39 +9,6 @@ export default function App() {
   const [showModal, setShowModal] = useState(false)
 
   async function downloadMp3() {
-    // if(await videoExists(videoUrl)) {      
-    //   try {
-    //     setLoading(true)
-    //     setShowModal(true) 
-
-    //     const url = `https://youtube-mp3-downloader2.p.rapidapi.com/ytmp3/ytmp3/custom/?url=${videoUrl}&quality=192`
-    //     const options = {
-    //       method: 'GET',
-    //       headers: {
-    //         'X-RapidAPI-Key': keys.env.RAPID_API_KEY,
-    //         'X-RapidAPI-Host': 'youtube-mp3-downloader2.p.rapidapi.com'
-    //       }
-    //     }
-    //     const response = await fetch(url, options)
-    //     if(!response.ok) {
-    //       throw {
-    //         message: "Download API didn't cooperate.", 
-    //         statusText: response.statusText,
-    //         status: response.status
-    //       }
-    //     }
-
-    //     startDownload(await response.json())
-    //   } catch (error) {
-    //     console.error(error)
-    //   } finally {
-    //     setLoading(false)
-    //     setVideoURL("")
-    //   }
-    // } else {      
-    //   setShowModal(true)    
-    // }
-
     if(await videoExists(videoUrl)) {      
       try {
         setLoading(true)
@@ -57,7 +24,6 @@ export default function App() {
         }
         const response = await fetch(serverFunction, options)
         const data = await response.json()
-        console.log(data)
 
         startDownload(data)
       } catch (error) {
@@ -82,23 +48,6 @@ export default function App() {
   }
 
   async function videoExists(url) {
-      // //check if the url contains a valid YouTube video ID
-      // const regEx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
-
-      // //if url contains a proper video ID, match returns an array with the ID at position 1
-      // if(url.match(regEx)) {
-      //   const id = url.match(regEx)[1]
-
-      //   //check if video exists
-      //   const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=id&id=${id}&key=${keys.env.GOOGLE_API_KEY}`)
-      //   const data = await response.json()
-
-      //   // 0 = no video = falsey = false, 1 = video = truthy = true
-      //   return data.items.length  
-      // } else {        
-      //   return false
-      // }    
-
       //check if the url contains a valid YouTube video ID
       const regEx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
 
@@ -117,7 +66,6 @@ export default function App() {
         }
         const response = await fetch(serverFunction, options)
         const data = await response.json()
-        console.log(data)
 
         // 0 = no video = falsey = false, 1 = video = truthy = true
         return data.items.length  

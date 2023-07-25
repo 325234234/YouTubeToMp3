@@ -147,6 +147,10 @@ main > h1 {
 }
 
 @media (max-width: 650px) {
+  body {
+    overflow: hidden;
+  }
+
   main > h1 {
     font-size: 12.25vw;
   }

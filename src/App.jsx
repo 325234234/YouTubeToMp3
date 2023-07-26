@@ -23,6 +23,7 @@ export default function App() {
             body: videoUrl
         }
         const response = await fetch(serverFunction, options)
+        console.log(response)
         const data = await response.json()
 
         startDownload(data)

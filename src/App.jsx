@@ -5,6 +5,7 @@ import { useState } from "react"
 export default function App() {
   const [videoUrl, setVideoURL] = useState("")
   const [isLoading, setLoading] = useState(false)
+  const [isKaputt, setKaputt] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
   async function downloadMp3() {
@@ -26,6 +27,8 @@ export default function App() {
 
         startDownload(data)
       } catch (error) {
+        setKaputt (true)
+        setShowModal(true)
         console.error(error)
       } finally {
         setLoading(false)
@@ -98,7 +101,7 @@ export default function App() {
         parentSelector={() => document.querySelector('#searchbar')}
         ariaHideApp={false}
       >
-        {isLoading ? "Preparing download" : "Invalid URL!"}
+        {isLoading ? "Preparing download" : isKaputt ? "Something went wrong :(" : "Invalid URL!"}
       </ReactModal>
     </main>
   )

@@ -18,6 +18,8 @@ button,
 /* Layout */
 body {
   min-height: 100vh;
+  min-width: 100vw;
+  padding: 0 1em;
 
   display: flex;
   flex-direction: column;
@@ -29,6 +31,8 @@ body {
 }
 
 main {
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,15 +156,15 @@ main > h1 {
   }
 
   main > h1 {
-    font-size: 12.25vw;
+    font-size: 12vw;
   }
 
   #searchbar {
-    width: 90vw;
+    width: 100%;
   }
 
   #searchbar > button {
-    width: fit-content;
+    min-width: fit-content;
     padding: 0 1em;
   }
 }

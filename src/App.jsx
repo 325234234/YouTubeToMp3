@@ -22,17 +22,16 @@ export default function App() {
             },
             body: videoUrl
         }
-        const response = await fetch(serverFunction, options)
-        
-        console.log(response)
+        const response = await fetch(serverFunction, options)        
+        console.log("downloadMp3 response: " + response)
         const data = await response.json()
-        console.log(data)
+        console.log("downloadMp3 data: " + data)
 
         startDownload(data)
       } catch (error) {
         setKaputt (true)
         setShowModal(true)
-        console.error(error)
+        console.log(error)
       } finally {
         setLoading(false)
         setVideoURL("")
@@ -70,11 +69,9 @@ export default function App() {
           body: id
         }
         const response = await fetch(serverFunction, options)
-        console.log(response)
-        // if(response.statusCode === "500") {
-
-        // }
+        console.log("videoExists response: " + response)
         const data = await response.json()
+        console.log("videoExists data: " + data)
 
         // 0 = no video = falsey = false, 1 = video = truthy = true
         return data.items.length  

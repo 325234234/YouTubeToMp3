@@ -23,9 +23,9 @@ export default function App() {
             body: videoUrl
         }
         const response = await fetch(serverFunction, options)        
-        console.log("downloadMp3 response: " + response)
+        console.log("downloadMp3 response: " + JSON.stringify(response))
         const data = await response.json()
-        console.log("downloadMp3 data: " + data)
+        console.log("downloadMp3 data: " + JSON.stringify(data))
 
         startDownload(data)
       } catch (error) {
@@ -69,9 +69,9 @@ export default function App() {
           body: id
         }
         const response = await fetch(serverFunction, options)
-        console.log("videoExists response: " + response)
+        console.log("videoExists response: " + JSON.stringify(response))
         const data = await response.json()
-        console.log("videoExists data: " + data)
+        console.log("videoExists data: " + JSON.stringify(data))
 
         // 0 = no video = falsey = false, 1 = video = truthy = true
         return data.items.length  

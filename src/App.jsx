@@ -23,7 +23,10 @@ export default function App() {
             body: videoUrl
         }
         const response = await fetch(serverFunction, options)
+        
+        console.log(response)
         const data = await response.json()
+        console.log(data)
 
         startDownload(data)
       } catch (error) {
@@ -67,6 +70,10 @@ export default function App() {
           body: id
         }
         const response = await fetch(serverFunction, options)
+        console.log(response)
+        // if(response.statusCode === "500") {
+
+        // }
         const data = await response.json()
 
         // 0 = no video = falsey = false, 1 = video = truthy = true
@@ -77,7 +84,7 @@ export default function App() {
   }
 
   function updateInput(event) {
-    setVideoURL(prevUrl => event.target.value)
+    setVideoURL(event.target.value)
   }
 
   return (

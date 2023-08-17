@@ -9,6 +9,7 @@ const handler = async (event) => {
         'X-RapidAPI-Host': 'youtube-mp3-downloader2.p.rapidapi.com'
       }
     }
+    
     const response = await fetch(url, options)
     if(!response.ok) {
       throw {
@@ -18,6 +19,7 @@ const handler = async (event) => {
       }
     }
     const data = await response.json()
+
     return {
       statusCode: 200,
       body: JSON.stringify(data),
